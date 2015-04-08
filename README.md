@@ -24,3 +24,6 @@ The DB needs manual setup and seeding. Two files are provided in `zf-app/db`. On
 In an ideal world, this would be managed by migrations, e.g. https://github.com/michaelhodgins/Mooduino
 
 
+## Testing
+
+`cd zf-app/tests && phpunit`
