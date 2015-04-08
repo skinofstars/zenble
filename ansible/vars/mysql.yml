@@ -1,0 +1,5 @@
+mysql:
+    root_password: password
+    user: dbuser
+    password: password
+    database: db
