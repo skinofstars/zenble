@@ -1,4 +1,4 @@
-Albums thing in Zend 1.10
+Albums thing in Zend 1.12
 
 Bootstrapped using the http://phansible.com/
 
