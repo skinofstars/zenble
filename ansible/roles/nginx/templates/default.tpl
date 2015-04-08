@@ -1,10 +1,12 @@
 server {
     listen  80;
 
-    root {{ doc_root }};
+    root {{ doc_root }}/zf-app/public;
     index index.html index.php;
 
     server_name {{ servername }};
+
+    fastcgi_intercept_errors on;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;

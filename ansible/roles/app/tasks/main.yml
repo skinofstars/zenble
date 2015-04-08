@@ -1,2 +1,22 @@
 ---
 # application tasks to be customized and to run after the main provision
+
+# most of these tasks are run-once. i don';t think sorting through that is
+# priority right now
+
+# TODO move $PATH and aliases to a /etc/profiles.d/app_vars.sh file
+
+# - name: add alias for zf cli
+#   command: echo "alias zf=/vagrant/zend1_12/bin/zf.sh" >> /home/vagrant/.bashrc
+
+# - name: add phpunit
+#   command: composer global require "phpunit/phpunit=4.6.*"
+
+# - name: ensure composer vendor packages are in path
+#   command: echo "PATH=\$PATH:/home/vagrant/.composer/vendor/bin/" >> /home/vagrant/.bashrc
+
+# - name: update /etc/php5/cli/php.ini include_path to include composer
+#   command: echo "include_path = \".:/usr/share/php:/home/vagrant/.composer/vendor/bin\"" >> /etc/php5/cli/php.ini
+
+# TODO add to app_vars.sh
+# export APPLICATION_ENV=development
