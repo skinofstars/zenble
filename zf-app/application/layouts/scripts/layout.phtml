@@ -12,7 +12,8 @@ echo $this->doctype(); ?>
   </head>
   <body>
     <div class="container">
-      <h1><?php echo $this->escape($this->title); ?></h1>
+      <div class="pull-right"><a href="/">Home</a> &middot; <?php echo $this->loggedInAs(); ?></div>
+      <h1><?php echo $this->escape($this->title); ?> </h1>
       <?php echo $this->layout()->content; ?>
     </div>
   </body>
