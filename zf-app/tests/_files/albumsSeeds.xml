@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <albums id="1" artist="Paolo Nutine" title="Sunny Side Up" />
+    <albums id="2" artist="Florence + The Machine" title="Lungs" />
+    <albums id="3" artist="Massive Attack" title="Heligoland" />
+    <albums id="4" artist="Andre Rieu" title="Forever Vienna" />
+    <albums id="5" artist="Sade" title="Soldier of Love" />
+</dataset>
