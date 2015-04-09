@@ -3,9 +3,31 @@
 class IndexController extends Zend_Controller_Action
 {
 
+    private $_acl = null;
+    private $_role = null;
+
     public function init()
     {
-        /* Initialize action controller here */
+        // yeah, just hack in a require...
+        // basically, i'd have hoped this would have been available in an autoload
+        // maybe at the very least put it in a bootstrap
+        // or y'know, php namespace loading
+        require_once 'Album/Acl.php';
+
+        $this->_acl = new Album_Acl();
+
+        $this->_role = (Zend_Auth::getInstance()->hasIdentity()) ? 'user' : 'guest';
+    }
+
+    public function preDispatch()
+    {
+        // FIXME action name isn't returning correctly?
+        //  just use per Action ACL until we sort it out
+        $action = $this->getRequest()->getActionName();
+
+        // if ( !$this->_acl->isAllowed($this->_role, 'album', $action) ) {
+        //   $this->_helper->redirector('index', 'auth');
+        // }
     }
 
     public function indexAction()
@@ -16,6 +38,11 @@ class IndexController extends Zend_Controller_Action
 
     public function addAction()
     {
+        // FIXME this would be better done in the preDispatch method
+        if ( !$this->_acl->isAllowed($this->_role, 'album', 'add') ) {
+          $this->_helper->redirector('index', 'auth');
+        }
+
         $form = new Application_Form_Album();
 
         $form->submit->setLabel('Add');
@@ -38,6 +65,12 @@ class IndexController extends Zend_Controller_Action
 
     public function editAction()
     {
+        // FIXME this would be better done in the preDispatch method
+        if ( !$this->_acl->isAllowed($this->_role, 'album', 'edit') ) {
+          $this->_helper->redirector('index', 'auth');
+        }
+
+
         $form = new Application_Form_Album();
         $form->submit->setLabel('Save');
         $this->view->form = $form;
@@ -68,6 +101,11 @@ class IndexController extends Zend_Controller_Action
 
     public function deleteAction()
     {
+        // FIXME this would be better done in the preDispatch method
+        if ( !$this->_acl->isAllowed($this->_role, 'album', 'delete') ) {
+          $this->_helper->redirector('index', 'auth');
+        }
+
          if ($this->getRequest()->isPost()) {
             $del = $this->getRequest()->getPost('del');
             if ($del == 'Yes') {

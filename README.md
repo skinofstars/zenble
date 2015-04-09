@@ -27,3 +27,17 @@ In an ideal world, this would be managed by migrations, e.g. https://github.com/
 ## Testing
 
 `cd zf-app/tests && phpunit`
+
+
+## What's missing
+
+- End to end provisioning
+- Generalised ACL action management
+- ACL in views
+- Logging
+- CSRF protection
+- Migrations
+- Good tests
+- respond_to json
+- Strangulation proxy
+
